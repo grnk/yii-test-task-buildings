@@ -9,6 +9,20 @@ namespace app\models;
  */
 class ApartmentsQuery extends \yii\db\ActiveQuery
 {
+    public function rent()
+    {
+        return $this->andWhere([
+            'rent_sale' => Buildings::TYPE_APARTMENT_RENT,
+        ]);
+    }
+
+    public function sale()
+    {
+        return $this->andWhere([
+            'rent_sale' => Buildings::TYPE_APARTMENT_SALE,
+        ]);
+    }
+
     /*public function active()
     {
         return $this->andWhere('[[status]]=1');

@@ -4,6 +4,8 @@ namespace app\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\db\Query;
+use yii\helpers\Url;
 
 /**
  * This is the model class for table "buildings".
@@ -23,6 +25,9 @@ use yii\behaviors\TimestampBehavior;
  */
 class Buildings extends \yii\db\ActiveRecord
 {
+    const TYPE_APARTMENT_SALE = 'sale';
+    const TYPE_APARTMENT_RENT = 'rent';
+
     /**
      * {@inheritdoc}
      */
@@ -64,7 +69,7 @@ class Buildings extends \yii\db\ActiveRecord
     }
 
     /**
-     * @return \yii\db\ActiveQuery
+     * @return yii\db\ActiveQuery
      */
     public function getApartments()
     {
@@ -94,5 +99,38 @@ class Buildings extends \yii\db\ActiveRecord
                 'value' => new \yii\db\Expression('NOW()'),
             ],
         ];
+    }
+
+    /**
+     * Возвращает урл здания
+     *
+     * @return string
+     */
+    public function getDetailUrl()
+    {
+        if(!empty($this->url_detail_building)){
+            return Url::to([
+                '/buildings/detail',
+                'url' => $this->url_detail_building,
+            ]);
+        }
+
+        return '#';
+    }
+
+    /**
+     * @return ApartmentsQuery
+     */
+    public function getQueryRentApartment()
+    {
+        return $this->getApartments()->rent();
+    }
+
+    /**
+     * @return ApartmentsQuery
+     */
+    public function getQuerySaleApartment()
+    {
+        return $this->getApartments()->sale();
     }
 }

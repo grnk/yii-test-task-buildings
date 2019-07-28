@@ -37,7 +37,6 @@ class m190726_083712_apartments_seeding extends Migration
      */
     public function safeDown()
     {
-//        $this->delete('apartments', []);
         $this->truncateTable('apartments');
     }
 }

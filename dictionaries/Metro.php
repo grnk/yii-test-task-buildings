@@ -21,7 +21,7 @@ class Metro
 
     public static function getItemValue($i)
     {
-        if(array_key_exists(static::$items[$i], static::$items)){
+        if(isset(static::$items[$i])) {
             return static::$items[$i];
         }
 
