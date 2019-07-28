@@ -19,7 +19,7 @@ class m190725_145939_building_seeding extends Migration
                 'metro' => rand(0, 9),
                 'number_of_floors' => rand(3, 20),
                 'name' => 'Здание номер ' . $i,
-                'image' => 'image_build' . $i . '.img',
+                'image' => 'image_build' . $i . '.jpg',
                 'status' => rand(0, 1),
                 'order' => rand(1, 100),
 

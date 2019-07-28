@@ -11,7 +11,7 @@ use app\dictionaries\Status;
 
 <div class="row">
     <div class="col-md-6">
-        <img src="/upload/buildings/<?= $model->image ?>">
+        <img height="150px" src="<?= $model->srcImage ?>">
     </div>
     <div class="col-md-6">
         <div>Метро - <?= Metro::getItemValue($model->metro) ?></div>

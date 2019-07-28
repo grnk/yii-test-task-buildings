@@ -133,4 +133,10 @@ class Buildings extends \yii\db\ActiveRecord
     {
         return $this->getApartments()->sale();
     }
+
+    public function getSrcImage()
+    {
+
+        return '/images/' . $this->image;
+    }
 }

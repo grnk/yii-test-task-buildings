@@ -13,7 +13,7 @@ use app\dictionaries\Status;
     <div class="panel panel-default">
             <div class="panel-heading"><?= $model->name ?></div>
             <div class="panel-body">
-                <img src="/upload/buildings/<?= $model->image ?>">
+                <img height="150px" src="<?= $model->srcImage ?>">
                 <div>
                     Количество этажей - <?= $model->number_of_floors ?>
                 </div>
